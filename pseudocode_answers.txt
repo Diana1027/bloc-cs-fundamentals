@@ -1,12 +1,56 @@
 Short Answer
 
-Why do programmers use pseudocode?
-If you run pseudocode on your computer what would happen?
+Q: Why do programmers use pseudocode?
+A: Pseudocode is a way for programmers to express what code should do without using a particular language.  So pseudocode provides a way for developers to talk about programming algorithms without having to have prior knowledge about a specific programming language. 
+
+Q: If you run pseudocode on your computer what would happen?
+A: Pseudocode can't really run on a computer since it written in English like statements that's meant for other developers (humans) to read.  So if you try and run it on a computer either nothing will happen and/or you'll get errors since the computer won't understand the pesudocode. 
 
 Programming Assignment
 Write the following algorithms in pseudocode:
 
-Create a function that takes two numbers and prints out the greater number.
-Create a function that prints out the numbers from 1 to 100.
-Create a function that searches for a specific entry in a phonebook.
-Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
+Q: Create a function that takes two numbers and prints out the greater number.
+A:  INPUT first number
+    INPUT second number 
+    IF first number is greater than second number THEN
+        PRINT "first number is greater than second number 
+    ELSE
+        PRINT "second number is greater than the first number"
+    END IF
+
+Q: Create a function that prints out the numbers from 1 to 100.
+A:  INIT FOR loop  
+        SET INIT number equal to 1
+        SET CONDITION to less than or equal to 100
+        SET INCREMENT to increment the number by 1
+        PRINT each number from 1 to 100
+    END FOR loop
+        
+Q: Create a function that searches for a specific entry in a phonebook.
+A:  INPUT names array(directory)
+    INPUT name
+    INIT FOR loop   
+        SET INIT number equal to 0
+        SET CONDITION TO less than the length of the array (directory) being searched
+        SET INCREMENT to increment by 1
+            IF the name in the array(directory) index equals the INPUT name THEN
+                PRINT "Found name" and the INPUT name
+            ELSE    
+                PRINT "Name not fount"
+            END IF
+        END FOR loop
+
+Q: Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
+
+A: var names = ["Mary Sue", "Rick Glass", "Darby Cat", "Joe Green"];
+
+    function nameSearch(name){
+        for(var i=0; i < names.length; i++){
+            if(names[i] === name){
+                console.log("Found name " + name);
+            } 
+        }
+        console.log("Name not found")
+    }
+
+    nameSearch("Mary Sue");
