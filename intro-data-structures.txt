@@ -1,0 +1,55 @@
+A line of people at an amusement park ride.
+
+The line is composed of members, represented as strings.
+There is a front to the line, as well as a back.
+When someone enters the line, place them at the end.
+People may leave the line whenever they see fit, and those behind them take their place.
+Given the above real-world information, use an array data structure to code the following solution.
+
+a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
+c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
+d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
+e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
+f) If Patrick wants to leave the line, how would you delete him from the array?
+
+A: 
+
+a) myArray = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+b) 
+function addPerson(name){
+    myArray.push(name)
+    return myArray;
+}
+addPerson("Mary");  
+
+c & d)
+function findPerson(name){
+   if(myArray.indexOf(name) === -1){
+     console.log("Person doesn't exist " + myArray.indexOf(name));
+   } else { 
+     console.log(myArray.indexOf(name));
+   }
+}
+findPerson("Emily"); */
+
+e)
+function jumpTheLine(name){
+  myArray.splice(1, 0, name)
+}
+jumpTheLine("Melissa");
+console.log(myArray);
+
+f)
+function removePerson(){
+    myArray.splice(3,1)
+}
+removePerson()
+console.log(myArray); 
+
+Q: Provide another real-world example that you can model using a data structure.
+A: I think one example that would work would be when college students need to schedule their classes for the next semester.  Some students might need to schedule 4-5 classes, and during scheduling they might change their mind and want to swap a class that was added with another class.  They might also was to completly remove or add additional classes to their schedule as well. 
+
+Q: How would your data structure allow developers to access and manipulate the data?
+A: I think the data would be structured in the form of an array.  The list of classes that the student selected could be stored in an array.  Then developers could manipulate that array by using some of the built in methods such as .push(), .pop(), .splice(), and .indexOf(). 
