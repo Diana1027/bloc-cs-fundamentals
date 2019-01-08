@@ -1,0 +1,196 @@
+1. What is a binary tree and what makes it unique to other trees?
+A: A binary tree is a data structure that has contains references to a "left" node and a "right" node.  This data structure is unique since every Node can only have up to two child Nodes. 
+
+2. What is a heuristic? 
+A: A huristic is like an "educated guess" or approximate solution that can be used to solve problems. 
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics
+A: Other problems that use heuristics are the Travelling Salesman Problem and problems involving virus scanning or antivirus software. 
+	
+4. What is the difference between a depth-first search and a breadth-first search?
+A: 
+A Depth-First Search starts at the root node and moves all the way down a single branch looking for the correct element.  However, if the element isn't found it moves up or backtracks and starts searching on another branch moving all the way down that branch until the correct element has been found. 
+
+A Breadth-First Search starts at the root node and explores the nodes within the same row in each depth before moving on to the next row. 
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+A: This is a graph in which the connection between nodes is ambiguous, it doesn't contain loops, and it doesn't take into consideration the weight between the nodes. 
+ 
+6. What kind of graph is a binary search tree?
+A: A binary search tree is a directed, a-cyclic, unweighted graph
+
+Programming Questions
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+A: The first thing is to start at the root and compare the value of the root with the one we have.  If the value that we have is more than the root we will move down the left child, but if it's less than the value we have we will move down the right child.  This process continues until the value is found or we've checked all the nodes.  We will return true if the value is found and false if we can't find the value. 
+
+class Node {
+  constructor(data, left = null, right = null){
+    this.data = data;
+    this.left = left;
+    this.right = right;
+  }
+}
+
+class SearchTree {
+  constructor(){
+    this.root = null;
+  }
+  add(data){
+  const node = this.root;
+  if(node === null){
+    this.root = new Node(data);
+    return;
+  } else {
+    const search = function(node){
+      if(data < node.data){
+        if(node.left === null){
+          node.left = new Node(data);
+          return;
+        } else if (node.left !== null){
+          return search(node.left);
+        }
+      } else if (data > node.data){
+        if(node.right === null){
+          node.right = new Node(data);
+          return;
+        } else if(node.right !== null){
+          return search(node.right);
+        }
+      } else {
+        return null;
+      }
+    };
+    return search(node);
+  }
+  }
+  find(data){
+    let current = this.root;
+    while(current){
+      if(data === current.data){
+        return true;
+      }
+      if(data < current.data){
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false; 
+  }
+}
+
+const tree = new SearchTree();
+tree.add(17);
+tree.add(27);
+tree.add(10);
+tree.add(65);
+tree.add(53);
+tree.add(14);
+tree.add(70);
+
+console.log(tree.find(10));
+console.log(tree.find(5));
+
+
+2. Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+A: In order to find the distance between the two nodes we need to find the lowest common ancestor of the 2 nodes then we would find the distance from the lowest common ancestor to the 2 nodes. 
+
+class Node {
+  constructor(data){
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BSearchTree {
+  constructor(){
+    this.root = null;
+  }
+
+  findDistance(root, num1, num2){
+    var lowestCommonAncestor = this.findCommonAncestor(root, num1, num2);
+    var distanceNode1ToRoot = this.countAncestors(lowestCommonAncestor, num1);
+    var distanceNode2ToRoot = this.countAncestors(lowestCommonAncestor, num2);
+    var distanceRootToAncestor = this.countAncestors(root,lowestCommonAncestor);
+
+    var totalDistance = (distanceNode1ToRoot + distanceNode2ToRoot) - (2 * distanceRootToAncestor);
+    return ('The distance between those two nodes is' + ' ' + totalDistance);
+  }
+
+  findCommonAncestor(root, num1, num2) {
+    if (!root) return;
+    var lowestCommonAncestor = root.data;
+    if (num1 === lowestCommonAncestor || num2 === lowestCommonAncestor) {
+      return lowestCommonAncestor;
+    }
+    if (num1 < lowestCommonAncestor && num2 < lowestCommonAncestor) {
+      return this.findCommonAncestor(root.left, num1, num2);
+    }
+    if (num1 > lowestCommonAncestor && num2 > lowestCommonAncestor) {
+      return this.findCommonAncestor(root.right, num1, num2);
+    }
+    return lowestCommonAncestor;
+  }
+
+  countAncestors(root, data) {
+    let thisNode = this.root;
+    let nodeCount = 0;
+    while (thisNode) {
+      if (data === thisNode.data) {
+        return nodeCount;
+      }
+      thisNode = data < thisNode.data ? thisNode.left : thisNode.right;
+      nodeCount++;
+    }
+  }
+
+  getRootNode() {
+    return this.root;
+  }
+
+  add(data) {
+    const node = this.root;
+    if (node === null) {
+      this.root = new Node(data);
+      return;
+    } else {
+      const searchTree = function(node) {
+        if (data < node.data) {
+          if (node.left === null) {
+            node.left = new Node(data);
+            return;
+          } else if (node.left !== null) {
+            return searchTree(node.left);
+          }
+        } else if (data > node.data) {
+          if (node.right === null) {
+            node.right = new Node(data);
+            return;
+          } else if (node.right !== null) {
+            return searchTree(node.right);
+          }
+        } else {
+          return null;
+        }
+      };
+      return searchTree(node);
+    }
+  }
+}
+
+var tree = new BSearchTree();
+
+tree.add(17);
+tree.add(27);
+tree.add(10);
+tree.add(65);
+tree.add(53);
+tree.add(14);
+tree.add(70);
+
+var root = tree.getRootNode();
+tree.findDistance(root, 27, 70);
