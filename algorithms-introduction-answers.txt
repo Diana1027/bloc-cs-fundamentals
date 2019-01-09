@@ -1,0 +1,60 @@
+1. Using proper pseudo-code, describe the following primitive algorithms: 
+
+a: Making Coffee:
+FUNCTION makeCoffee(3in1)
+    GET 3in1 coffee pack from kitchen drawer
+    GET coffee mug
+    ADD 3in1 coffee pack to coffee mug
+    IF electric kettle is off
+        TURN ON electric kettle
+    ELSE
+        WAIT for water to boil
+    END IF
+    ADD hot water to coffee mug
+END FUNCTION
+
+b: Washing Dishes: 
+FUNCTION loadDishwasher()
+    GET dish liquid soap
+    PUT dish-liquid soap into soap dispenser in dishwasher  
+    FOR EACH dirty dish 
+        Pre-rinse dish 
+        Place in dishwasher
+    END FOR
+    TURN on dishwasher
+    IF dishwasher has stopped 
+        Remove dishes and put away
+    ELSE    
+        WAIT for dishwasher to stop
+    END IF
+END FUNCTION
+
+c: Feed Cat:
+FUNCTION feedCat()
+    GET cat food bowl 
+    GET cat food can
+    GET spoon 
+    IF cat food bowl is dirty 
+        Wash cat food bowl
+    ELSE 
+        Place bowl on kitchen counter 
+    END IF
+    OPEN cat food can
+    PUT spoon in cat food and scoop food into bowl
+    IF cat food can is empty
+        Place cat food bowl on floor
+    ELSE
+        Empty cat food can into cat food bowl
+    END IF
+    PUT cat food bowl on floor
+    PUT cat food can in trash
+END FUNCTION
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+    1. Spotify Music App -> The app algorithm is able to make recommendations based on user listening history and downloads.  The app algorithm also introduces new music and artists to user that they might have over looked or never notices.  This is all based on user actions within the app such as frequently played songs, downloads and other things. 
+    2. Facebook -> The app algorithm is designed to create more interaction between the user and the app based on user interactions/reactions to their friends posts. The more postive comments and reactions that a user provides to their friends the more their news feed is populated with friends that the algorithm "thinks" will cause a positive reaction/comment/post from the user thus creating an interaction between the user and the app. 
+    3. Amazon Product Ranking -> The Amazon ranking algorithm ranks products on their platform based on conversion rate, relevance to the user's search query, and customer satisfaction.  This provides users with what Amazon "thinks" are the best relevant products for the user.  So the user doesn't need to search through 100's of products the algorithm provides users with the top ranked products based on their search query.  Therefore, users can find what they are looking for faster and make a purchase faster. 
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+    A: Certainly an inefficient algorithm is one that doesn't work properly or provides inconsistant results.  Also an inefficient algorithm would take a long time to produce results as well which may cause the user to navigate away from the page before the algorithm has completed.  In addition, the algorithm could also consume or require too much memory for it to be efficient.  An efficient algorithm on the other hand produces accurate resutls quickly and doesn't require a lot of space in memory.  
