@@ -1,0 +1,50 @@
+1. Define and compare recursion and iteration.
+A: Recursion is a procedure that calls itself until a certain condition, known as a base case, is reached.  On the other hand, iteration is a procedure that uses a loop to repeat a process.
+
+2. Name five algorithms that are commonly implemented by recursion.
+A: 
+- Recursive Binary Search 
+- Fibonacci Sequence 
+- Merge Sort 
+- Quick Sort 
+- Factorial 
+
+3. When should you use recursion, and when should you avoid recursion? Give examples for each.
+A: It's appropriate to use recursion when an algorithm can be defined as a combination of sub-results starting with known cases. Factorials are a good use case for recursion.  Algorithms that pass over a collection of data work better with an iterative solution such as finding a maximum number. 
+
+ 4. Compare the recursive and iterative solutions to the three algorithms from the checkpoint (factorial, maximum, and fibonacci). What is similar, and what is different?
+ A: What's similar about both the recursive and iterative solutions for the three algorithms is that both procedures lead to the correct solution.  However, as a difference the iterative solution appears to look cleaner and simpler as it's being used to run through data while the recursion solution looks simpler when calculating factorials. 
+
+
+ 5. Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection.
+
+function countElements(array){
+    if(array.length){
+        return 1 + countElements(array.slice(1))
+    } else {
+        return 0;
+    }
+}
+countElements([1,2,3]);
+
+
+6. A palindrome is a word or phrase whose spelling is the same either direction (e.g., racecar). Write a recursive algorithm to determine if a given word or phrase is a palindrome.
+
+function checkPalindrome(str){
+    str = str.toLowerCase();
+    if(str.length === 1){
+        return true;
+    } else {
+        if(str[0] !== str[str.length - 1]){
+            return false
+        }
+        return checkPalindrome(str.slice(1, -1));
+    }
+}
+checkPalindrome("racecar");
+
+
+ 7. Google Easter Egg: Google the term "recursion". Google will prompt you with "Did you mean: recursion". Explain why this behaviour exhibits properties of recursion.
+ A: This behavior exhibits properties of recursion because a recursive function calls itself.  So when the search term 'recursion' is typed into Google, Google provides the reference to itself by asking "Did you mean: recursion."
+
+  
