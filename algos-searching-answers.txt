@@ -1,0 +1,60 @@
+Short Answer Questions 
+
+1. What is a real-life scenario that uses linear search? 
+A: Searching for your name (or another employee) in a list of stack ranking performance reviews.
+
+2. What's a real-life scenario that uses binary search? 
+A: Searching for a specific book in a library by author's last name (library books are in alphabetical order by author's last name).
+
+3. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+A: 7 Iterations 
+
+4. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+A: 3 Iterations 
+
+5. Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+A: Since the collection is unsorted, I would use a linear search; binary searches only work with sorted collections. 
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+A: Since the collection is sorted, I would use a binary search since it would go faster as it wouldn't have to check every single item in the collection. 
+
+Programming Assignment: 
+
+1. You and a friend have set a wager to see who can find the word "Albatross" in the dictionary the fastest. Write a program to allow you to win the bet.
+
+A: var words = ["Albatross", "Cat", "Dog", "Frog", "Mouse"]
+
+function findWord(arr, word){
+  let low = arr[0];
+  let high = arr[arr.length - 1];
+
+  while(low <= high){
+    let mid = (arr.indexOf(low) + arr.indexOf(high)) / 2;
+    mid = Math.round(mid);
+
+    if(arr[mid] > word){
+      high = arr[mid - 1];
+    } else if(arr[mid] < word){
+      low = arr[mid + 1];
+    } else {
+      return arr[mid]
+    }
+  }
+  return "Not Found";
+}
+findWord(words, "Albatross");
+
+
+2. You work at a pet store, and a child has asked you to net the only white-spotted goldfish from the fish tank. Write a program that will help you net the right fish.
+
+var fishTank = ["goldfish", "shark", "seahorse", "turtle", "white-spotted goldfish"];
+
+function getFish(arr, fish){
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] === fish){
+      return "You've caught a " + fish
+    }
+  }
+  return "That fish isn't in the fish tank"
+}
+getFish(fishTank, "white-spotted goldfish");
