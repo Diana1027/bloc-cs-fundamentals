@@ -1,0 +1,48 @@
+Exercises: 
+
+1. Write pseudocode for bubble sort.
+A: 
+FUNCTION bubbleSort (array)
+DO 
+SET SWAPPED to false
+  FOR first index of array to last index of collection - 1
+    IF array[i] > array[i+1] 
+      SET tmp to array[i]
+      SET array[i] to array[i+1]
+      SET array[i+1]to tmp
+      SET SWAPPED to true
+    END IF 
+  END FOR 
+UNTIL SWAPPED equals false
+  RETURN collection
+END FUNCTION
+
+2. Write pseudocode for quicksort.
+A: 
+FUNCTION quickSort(nums)
+  IF nums less or equal to 1 
+    RETURN nums
+  END IF
+
+  SET pivot equals to nums.length-1 
+  SET left to empty array
+  Set right to empty array 
+
+  FOR each index from 0 to the last index -1
+   IF nums[i] is less than the pivot 
+     PUSH nums[i] to left array
+   ELSE 
+      PUSH nums[i] to right array
+   END IF 
+  END FOR 
+    REPEAT quickSort function to the right array from pivot
+    REPEAT quickSort function to the left array from pivot
+    CONCAT both 
+END FUNCTION
+
+3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
+A: Merge sort and quick sort are more efficient because they use 'divide and conquer' principles.  This means that they split up larger collections into smaller ones bringing them back together after the sorting is completed.  Since merge and quick sort are initially dealing with smaller collections this makes them more efficient than a bubble sort or a selection sort which look at and sort the entire collection at once. 
+
+4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+A: A bucket sort compares and divides elements into buckets then sorts those buckets individually by using recursion or another sorting algorithm.  The ideal input for a bucket sort are elements that are uniformly distributed over a range. 
+
